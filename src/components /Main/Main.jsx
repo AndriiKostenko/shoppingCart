@@ -1,21 +1,12 @@
-import React , {useState, useEffect} from 'react'
-import axios from 'axios';
+import React from 'react'
 import Item from '../Item/Item'
 import './style.css';
+import { useSelector } from 'react-redux';
+
 
 export default function Main() {
-
-    const [items, setItems] = useState();
-
-    useEffect(() => {
-        axios
-        .get('https://607602090baf7c0017fa76d6.mockapi.io/api/products/products')
-        .then(response => setItems(response.data))
-        .catch(error => console.log(error))
-    }, []);
-
     
-
+    const items = useSelector(store => store.items.items);
 
     return (
         <div className='mainContainer'>
@@ -24,7 +15,6 @@ export default function Main() {
             {items && items.map(item => (
                 <Item key={item.id} item={item} />
             ))}           
-
 
         </div>
     )
