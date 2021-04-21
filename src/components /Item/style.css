@@ -1,0 +1,76 @@
+h3 {
+    font: 1.5em sans-serif;
+    font-weight: 600;
+    text-align: left;
+
+}
+
+.item {
+    width: 90%;
+    height: 200px;
+    border: 1px solid gray;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.itemImageWrapper {
+   
+    width: 40%;
+    border: 2px solid black
+}
+
+.itemTextWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.itemImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.itemContentCenter {
+    
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px ;
+}
+
+.itemContentRight {
+   
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 10px ;
+}
+
+.itemPrice {
+    font-size: 2em
+}
+
+.addToCartBtn {
+    width: 175px;
+    height: 50px;
+    font-size: large;
+    cursor: pointer;
+
+}
+
+
+
+@media screen and (max-width: 480px) {
+    
+    .itemTextWrapper {
+        flex-direction: column;
+    }
+    .itemContentCenter{
+        width: 100%;
+    }
+}
