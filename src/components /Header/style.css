@@ -19,7 +19,7 @@ display: flex;
 }
 
 .headerButton {
-    width: 100px;
+    width: 140px;
     height: auto;
     color: blue;
     border: none;
@@ -30,4 +30,12 @@ display: flex;
     outline: none;
     text-decoration: none;
     background-color: oldlace;
+    position: relative;
+}
+
+.cartTotalCount {
+    position: absolute;
+    left: -30px;
+    text-decoration: none;
+
 }
