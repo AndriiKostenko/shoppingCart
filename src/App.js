@@ -1,4 +1,7 @@
 import React from 'react'
+import Container from '@material-ui/core/Container';
+
+
 import './App.css';
 import Header from './components /Header/Header';
 import axios from 'axios';
@@ -10,6 +13,7 @@ import Main from './components /Main/Main';
 import Cart from './components /Cart/Cart';
 import {setItems} from './redux/actions/items';
 import { useDispatch } from 'react-redux'
+
 function App() {
 
   const dispatch = useDispatch();
@@ -22,15 +26,22 @@ function App() {
   }, []);
 
   return (
-   <div className = "App" >
+   <div>
+
+     <Container fixed maxWidth='lg'>
+
       <Header />
       <Route exact path="/">
         <Main />
       </Route>
       <Route path="/cart">
         <Cart />
-      </Route>     
+      </Route>  
+
+     </Container>
+
     </div>
+
 
   );
 }
