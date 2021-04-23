@@ -8,10 +8,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import {Link} from 'react-router-dom';
-import Cart from '../Cart/Cart'
-import Main from '../Main/Main'
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
+import { useSelector } from 'react-redux';
 
 
 //import { createMuiTheme } from '@material-ui/core/styles';
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
-        color: theme.palette.white,
     },
     title: {
         display: 'none',
@@ -69,22 +67,12 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch',
         },
     },
-    sectionDesktop: {
-        display: 'none',
-        [theme.breakpoints.up('md')]: {
-            display: 'flex',
-        },
-    },
-    sectionMobile: {
-        display: 'flex',
-        [theme.breakpoints.up('md')]: {
-            display: 'none',
-        },
-    },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Header() {
     const classes = useStyles();
+    const { totalCount } = useSelector(({ cart }) => cart);
+
 
 
 
@@ -114,8 +102,8 @@ export default function PrimarySearchAppBar() {
                         />
                     </div>
                     <div className={classes.grow} />
-                    <IconButton aria-label="show 17 new notifications" color="inherit">
-                        <Badge badgeContent={0} showZero color="secondary" >
+                    <IconButton aria-label= "show new notifications" color="inherit">
+                        <Badge badgeContent={totalCount} showZero color="secondary" >
                             <Button  size='large' variant='outlined' color='secondary'>My Cart</Button>
                         </Badge>
                     </IconButton>
