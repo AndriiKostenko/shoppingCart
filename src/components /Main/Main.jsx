@@ -3,6 +3,8 @@ import Item from '../Item/Item'
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/cart'
+import { Grid, Container } from '@material-ui/core';
+
 
 
 export default function Main() {
@@ -15,17 +17,26 @@ export default function Main() {
     }
 
     return (
-        <div className='mainContainer'>
-            <h1>Main</h1>
-
+       <Container maxWidth='md'>            
+           <Grid 
+                container
+                direction='column'
+                justify='space-around'
+                padding='30px 0' 
+                
+            >
+           
             {items && items.map(item => (
                 <Item
                     key={item.id}
                     item={item}
-                    onClickItem={clickBtn}
+                    
+                
                 />
             ))}
+             </Grid>
 
-        </div>
+        </Container>
+
     )
 }
